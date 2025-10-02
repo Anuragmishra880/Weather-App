@@ -72,7 +72,7 @@ export default function Home() {
                         </div>
 
                         <form id="searchForm" class="search-bar d-flex" style={{
-                            width: "52%"
+                            width: "52%" 
                         }} onSubmit={handleSearch} >
                             <input id="cityInput" class="form-control me-2" type="search" placeholder="Enter city (e.g. Patna)" aria-label="Search" value={city} onChange={(e) => setCity(e.target.value)} />
                             <button id="searchBtn" class="btn btn-light">Search</button>
