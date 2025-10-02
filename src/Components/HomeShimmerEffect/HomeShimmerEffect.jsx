@@ -3,7 +3,7 @@ import './HomeShimmerEffect.css'
 // import '../Home/Home.css'
 export default function HomeShimmerEffect() {
     return (
-        <div className="weather-app ">
+        <div className="weather-app  shimmer-app">
 
             <div className="shimmer-card">
 

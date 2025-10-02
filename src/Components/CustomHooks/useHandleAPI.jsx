@@ -26,7 +26,6 @@ export default function useHandleAPI(ApiKey) {
             let data = await weatherResponse.json();
             setWeather(data)
             setCity("");
-           
 
         }
         catch (error) {

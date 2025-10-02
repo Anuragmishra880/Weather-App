@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './Home.css'
-import { WiDaySunny, WiNightClear, WiRain } from "react-icons/wi"
 import HomeShimmerEffect from '../HomeShimmerEffect/HomeShimmerEffect'
 import useHandleAPI from '../CustomHooks/useHandleAPI'
 
@@ -36,16 +35,14 @@ export default function Home() {
                 <div className="weather-card">
 
                     {/* <!-- SEARCH ROW --> */}
-                    <div className="d-flex align-items-center justify-content-between gap-3 mb-2">
+                    <div className="d-flex align-items-center justify-content-between gap-3 mb-2 mobileResponsive">
                         <div>
-                            <h3 style={{ margin: 0 }}>Open Weather</h3>
+                            <h3 style={{ margin: 0 }}>{weather?.name}, {weather?.sys?.country}</h3>
                             <small style={{ opacity: 0.9 }}>{weather.weather[0].description} & {new Date(weather.dt * 1000).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}</small>
                         </div>
 
-                        <form id="searchForm" className="search-bar d-flex" style={{
-                            width: "52%"
-                        }} onSubmit={handleSearch} >
-                            <input id="cityInput" className="form-control me-2" type="search" placeholder="Enter city (e.g. Patna)" aria-label="Search" value={city} onChange={(e) => setCity(e.target.value)} />
+                        <form id="searchForm" className="search-bar d-flex" onSubmit={handleSearch} >
+                            <input id="cityInput" className="form-control me-2" type="search" placeholder="Enter city " aria-label="Search" value={city} onChange={(e) => setCity(e.target.value)} />
                             <button id="searchBtn" className="btn btn-light">Search</button>
                         </form>
                     </div>
@@ -53,14 +50,16 @@ export default function Home() {
                     {/* <!-- MAIN WEATHER --> */}
                     <div className="weather-main">
                         <div className="weather-info">
-                            <div className="weather-city" id="cityName">{weather?.name}, {weather?.sys?.country}</div>
-                            <div className="weather-temp" id="temp">{(weather?.main?.temp - 273.5).toFixed(1)} °C</div>
-                            <div className="weather-desc" id="desc">{weather?.weather[0]?.main}</div>
+                            {/* <div className="weather-city" id="cityName">{weather?.name}, {weather?.sys?.country}</div> */}
+                            <div className="weather-temp" id="temp">{(weather?.main?.temp - 273.5).toFixed(1)} <sup>°C</sup></div>
+                            <div className="weather-desc" id="desc">{weather?.weather[0]?.main}  {(weather?.main?.temp_min - 273.5).toFixed(1)} ° /  {(weather?.main?.temp_max - 273.5).toFixed(1)}</div>
                             <div style={{
                                 "marginTop": "8px", "color": "#ffffffd9"
                             }}>
                                 <small>Updated: {new Date((weather?.dt + weather?.timezone) * 1000)
-                                    .toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}<span id="updatedTime"></span></small>
+                                    .toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
+
+                                    <span id="updatedTime"></span></small>
                             </div>
                         </div>
 
