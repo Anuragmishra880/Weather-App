@@ -8,7 +8,7 @@ export default function useHandleAPI(ApiKey) {
 
 
             // *** Find City Name ***  //
-            let geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${ApiKey}`
+            let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${ApiKey}`
             let geoResponse = await fetch(geoUrl)
             const geoData = await geoResponse.json();
             if (!geoData.length) {
