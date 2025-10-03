@@ -117,47 +117,11 @@
  }
 
  /* Responsive adjustments */
- @media (max-width:720px) {
-     .weather-main {
-         flex-direction: column;
-         align-items: flex-start;
-     }
-
-     .weather-icon {
-         width: 400px;
-         height: 200px;
-         /* box-shadow: none;
-         border-radius: 0;
-         outline:none; */
-     }
-
-     .weather-icon img {
-         height: 100%;
-         width: 100%;
-     }
-
-     .weather-temp {
-         font-size: 2.25rem;
-     }
-
-     .weather-main {
-         margin-top: 4rem;
-         margin-left: 10rem;
-         display: flex;
-         gap: 1.25rem;
-         align-items: center;
-         justify-content: space-between;
-         padding-top: 0.75rem;
-     }
-
-
- }
-
- @media (max-width:620px) {
+ @media screen and (max-width:620px) {
 
      .mobileResponsive {
          flex-direction: column;
-         /* margin-top: 2rem; */
+         margin-top: 2rem;
      }
 
      .search-bar .form-control {
@@ -185,6 +149,7 @@
          margin-top: 4rem;
          margin-left: 0;
          display: flex;
+         flex-direction: column;
          gap: 1.25rem;
          align-items: center;
          justify-content: space-between;
@@ -215,7 +180,11 @@
          padding: 0;
          margin: 0;
          overflow-x: hidden;
-
          overflow-y: auto
      }
+ }
+
+
+ @media screen and (max-width: 720px) and (min-width: 621px) {
+    
  }
